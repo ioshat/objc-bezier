@@ -1,0 +1,47 @@
+
+{#background}
+  {?color}
+    UIColor *fillColor = [UIColor {@objCColor}{color}{/objCColor}];{~n}
+    [fillColor setFill];{~n}{~n}
+  {/color}
+{/background}
+
+{#paths}
+  {@if cond="{paths.length} == 1 && {paths[0].length} == 1"}
+    {#.}
+      {?rect}
+        UIBezierPath *{name} = [UIBezierPath bezierPathWithRect:CGRectMake(
+        {rect[0]}, {rect[1]}, {rect[2]}, {rect[3]}
+        )];{~n}
+      {/rect}
+
+      {?ellipse}
+        UIBezierPath *{name} = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(
+        {ellipse[0]}, {ellipse[1]}, {ellipse[2]}, {ellipse[3]}
+        )];{~n}
+      {/ellipse}
+    {/.}
+  {:else}
+    UIBezierPath *{name} = [UIBezierPath bezierPath];{~n}{~n}
+    {#.} {!path components !}
+      {?move}
+        // Set the starting point of the line Shape Path.{~n}
+        [{name} moveToPoint:CGPointMake(
+        {move[0]}, {move[1]}
+        )];{~n}{~n}
+      {/move}
+
+      {?line}
+        // Draw line Shape Path.{~n}
+        [{name} addLineToPoint:CGPointMake(
+        {line[0]}, {line[1]}
+        )];{~n}
+      {/line}
+    {/.}
+    {~n}
+    [{name} closePath];{~n}
+  {/if}
+  {?background.color}
+    [{name} fill];{~n}
+  {/background.color}
+{/paths}
