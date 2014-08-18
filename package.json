@@ -1,8 +1,8 @@
 {
   "name": "ioshat-objc-bezier",
-  "title": "Bezier Path in Objective-C",
+  "title": "Bezier Path",
   "version": "0.0.1",
-  "description": "Template for iOS Hat",
+  "description": "Template for Bezier Path in Objective-C",
   "main": "dust.js",
   "author": "Tomas Ruzicka <tomasruzicka@abdoc.net> (https://github.com/lezuse)",
   "license": "MIT",
