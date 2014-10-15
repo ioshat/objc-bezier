@@ -23,16 +23,14 @@
     {/.}
   {:else}
     UIBezierPath *{name} = [UIBezierPath bezierPath];{~n}{~n}
-    {#.} {!path components !}
+    {#.}{!path components !}
       {?move}
-        // Set the starting point of the line Shape Path.{~n}
         [{name} moveToPoint:CGPointMake(
         {move[0]}, {move[1]}
         )];{~n}{~n}
       {/move}
 
       {?line}
-        // Draw line Shape Path.{~n}
         [{name} addLineToPoint:CGPointMake(
         {line[0]}, {line[1]}
         )];{~n}
